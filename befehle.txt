@@ -1,0 +1,11 @@
+- USB Sticks im Ordner /media
+	unter fedora im Ordner /run/media/"uname"/
+- sudo -i als root anmelden
+- pstree zeigt Prozesse als tree an 
+- lsb_release -a informationen über das Betriebssystem
+- top prozesse und Auslatung anzeiegen
+	htop besser und mehr graphik
+- sudo reboot rechner neu starten
+- cp -R rekursive, funktionier auch bei rm
+- chmode zugriffsrechte ändern
+
