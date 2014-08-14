@@ -8,4 +8,13 @@
 - sudo reboot rechner neu starten
 - cp -R rekursive, funktionier auch bei rm
 - chmode zugriffsrechte ändern
-
+- chown change owner
+- ifconfig ipconfig für Linux
+- dpkg-reconfigure gdm dislpay manager ändern
+- killall "progname" alles stoppen des Programms
+- netstat -r Routingtabelle
+	tunepc service anzeige
+- sh -c "progname" ausführen einer Datei, oder Programm oder shellskript
+- locate "deteiname" dateiname finden, auch Ordner
+- id benutzer und gruppe id anzeigen
+- history -c bashhistory löschen
