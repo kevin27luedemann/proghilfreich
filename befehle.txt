@@ -18,3 +18,4 @@
 - locate "deteiname" dateiname finden, auch Ordner
 - id benutzer und gruppe id anzeigen
 - history -c bashhistory löschen
+- sudo adduser --no-create-home --disabled-login --shell /bin/false <username> user ohne homeverzeichnis erstellen
