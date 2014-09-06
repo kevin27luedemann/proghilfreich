@@ -1,10 +1,7 @@
 % Für Bindekorrektur als optionales Argument "BCORfaktormitmaßeinheit", dann
 % sieht auch Option "twoside" vernünftig aus
 % Näheres zu "scrartcl" bzw. "scrreprt" und "scrbook" siehe KOMA-Skript Doku
-\documentclass[12pt,a4paper,titlepage,headinclude,bibtotoc]{scrartcl}
-
-
-%---- Allgemeine Layout Einstellungen ------------------------------------------
+\documentclass[12pt,a4paper,titlepage,headinclude]{scrartcl}
 
 % Für Kopf und Fußzeilen, siehe auch KOMA-Skript Doku
 \usepackage[komastyle]{scrpage2}
@@ -17,35 +14,75 @@
 \setkomafont{captionlabel}{\sffamily\bfseries}
 \setcapindent{0em}
 
+%Header Datei
+\usepackage{cellspace} %mehr Platz in Tabellen
+\addtolength\cellspacetoplimit{3pt}
+\newcommand\myhline[1][2pt]{\\[#1]\hline}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Formatierung %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%---- Weitere Pakete -----------------------------------------------------------
-% Die Pakete sind alle in der TeX Live Distribution enthalten. Wichtige Adressen
-% www.ctan.org, www.dante.de
+\usepackage[backend=bibtex,natbib=true,sorting=nyt,style=numeric-comp]{biblatex}
+\usepackage[babel,german=quotes]{csquotes}
+\bibliography{lit}
 
-% Sprachunterstützung
-\usepackage[ngerman]{babel}
+%Zur vernünftigen Dekodierung
+\usepackage[T1]{fontenc} %
+\usepackage[utf8]{inputenc} %utfx8
+\usepackage[ngerman]{babel} %
 
-% Benutzung von Umlauten direkt im Text
-% entweder "latin1" oder "utf8"
-\usepackage[utf8]{inputenc}
+%Interaktives Dokument
+\usepackage[pdfpagelabels=true]{hyperref}%
 
-% Pakete mit Mathesymbolen und zur Beseitigung von Schwächen der Mathe-Umgebung
-\usepackage{latexsym,exscale,stmaryrd,amssymb,amsmath}
+%Für wissenschaftliches Zitieren
+%\usepackage{natbib}
+
+%Schriftarten
+%\usepackage{lmodern} %
+
+%Formatierung für Kof- und Fußzeile. Hier gilt entweder ... oder ...!!
+
+%Für eigenen Zeilenabstand
+\usepackage{setspace} %
+
+%Für die Seitenformatierung
+\usepackage{lscape} %
+\usepackage{multicol} %
+\usepackage{wallpaper} %
+
+%Styling Inhaltsverzeichnis
+\usepackage{tocloft} %
+
+% Zur Formatierung für Kopf und Fußzeilen. Im Allgemeinen ist scrpage2 besser als fancyhdr
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\setheadsepline{0.5pt}[\color{black}]
+
+%Einstellungen für Figuren- und Tabellenbeschriftungen
+\setkomafont{captionlabel}{\sffamily\bfseries}
+\setcapindent{0em} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Mathematisches %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Pakete für Mathesymbole
+\usepackage{latexsym,exscale,stmaryrd} %
+\usepackage{amssymb, amsfonts, amstext} %
+\usepackage{amsmath, mathtools, amsthm} %
 
 % Weitere Symbole
-\usepackage[nointegrals]{wasysym}
-\usepackage{eurosym}
+\usepackage[nointegrals]{wasysym} %
+\usepackage{eurosym} %
+\usepackage{textcomp} %
 
-% Anderes Literaturverzeichnisformat
-%\usepackage[square,sort&compress]{natbib}
+%\usepackage{ucs} %
 
-% Für Farbe
-\usepackage{color}
+%Für vernünftige Einheiten 
+\usepackage[separate-uncertainty, exponent-product = \cdot]{siunitx}
+%\usepackage[thinspace,thinqspace,amssymb]{SIunits} %
+\usepackage{icomma} %
+\usepackage{nicefrac}%
 
-% Zur Graphikausgabe
-%Beipiel: \includegraphics[width=\textwidth]{grafik.png}
-\usepackage{graphicx}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Grafiken & Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Text umfließt Graphiken und Tabellen
 % Beispiel:
 % \begin{wrapfigure}[Zeilenanzahl]{"l" oder "r"}{breite}
@@ -54,8 +91,6 @@
 %   \caption{Beschriftung} 
 %   \label{fig:grafik}
 % \end{wrapfigure}
-\usepackage{wrapfig}
-
 % Mehrere Abbildungen nebeneinander
 % Beispiel:
 % \begin{figure}[htb]
@@ -68,8 +103,6 @@
 %   \caption{Beschriftung allgemein}
 %   \label{fig:label-gesamt}
 % \end{figure}
-\usepackage{subfigure}
-
 % Caption neben Abbildung
 % Beispiel:
 % \sidecaptionvpos{figure}{"c" oder "t" oder "b"}
@@ -79,11 +112,29 @@
 %   \caption{Beschreibung}
 %   \label{fig:}
 % \end{SCfigure}
+
+%Zum Einbinden von GRafiken
+\usepackage{graphicx}% [pdflatex]
+\usepackage{xcolor}%
+
+%Für textumflossene Grafiken
+\usepackage{wrapfig} %
+
+%Für subfigure
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Caption neben Abbildung
 \usepackage{sidecap}
 
-% Befehl für "Entspricht"-Zeichen
-\newcommand{\corresponds}{\ensuremath{\mathrel{\widehat{=}}}}
+%Für URLs
+\usepackage{url}%
 
+%Zum Einbinden von Quelltext
+\usepackage{listings-ext} %
+
+%Für chemische Formeln
+\usepackage{chemfig} %
 %Für chemische Formeln (von www.dante.de)
 %% Anpassung an LaTeX(2e) von Bernd Raichle
 \makeatletter
@@ -96,41 +147,172 @@
    \mathrm{#1}%
    \resetfontdimens}}
 \makeatother
-
-
 %erzwinge Fussnote auf selber Seite
 \interfootnotelinepenalty=1000
-\usepackage{supertabular}
 
-%c++ Code einbinden
-\usepackage{listings}
-\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt}
-
-%Honneker Boxen
+%Zusätzliche Boxen
 \usepackage{fancybox}
 
-%Zitate
-%\usepackage[round]{natbib}
-\usepackage{cite}
+%\usepackage{framed}
+%\usepackage{mathmode}
+%\usepackage{empheq}
+
+%Für variable Referenzen
+\usepackage{varioref}
+
+%Für Tabellen mit fester Gesamtbreite und variabler Spaltenbreite (im Gegensatz zu tabular)
+\usepackage{tabularx}
+%\newcommand{\ltab}{\raggedright\arraybackslash} % Tabellenabschnitt linksbündig
+%\newcommand{\ctab}{\centering\arraybackslash} % Tabellenabschnitt zentriert
+%\newcommand{\rtab}{\raggedleft\arraybackslash} % Tabellenabschnitt rechtsbündig
+
+
+%Für Gleitobjekte
+\usepackage{float} %Für H-Option
+
+\usepackage{multirow} % Zellen von Tabellen zusammenfassen
+\usepackage{booktabs} % verschoenert Tabellen
+\usepackage{fixltx2e} % Repariert einige Dinge in Bezug auf das setzen von Gleitobjekten http://ctan.org/pkg/fixltx2e
+\usepackage{stfloats} % Bei Gleitobjekten (figure,table,...) die ueber zwei Spalten gesetzt werden (Umgebung figure*), funktioniert [tb] http://ctan.org/pkg/stfloats
+\usepackage{rotating} % Wird für Text und Grafiken benötigt, die um einen Winkel gedreht werden sollen
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Kommandodefinitionen %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Zur Korrektur und Kommentierung
+\newcommand{\comment}[1]{\marginpar{\tiny{\textcolor{red}{#1}}}} % ermoeglicht kleine Kommentare am Seitenrand: \comment{Fehler?}
+\newcommand{\Comment}[1]{\textcolor{red}{#1}}
+
+%Zur Formatierung in der Matheumgebung
+\renewcommand{\t}{\ensuremath{\rm\tiny}} % Tiefgestellter Text in der Matheumgebung wird schoener mit: $\Phi_{\t{Text}}$
+\renewcommand{\d}{\ensuremath{\mathrm{d}}} % Die totale Ableitung ist stets aufrecht zu setzen: \d
+\newcommand{\diff}[3][]{\ensuremath{\frac{\d^{#1}#2}{\d#3^{#1}}}} % einfache Ableitung nach x: $\ddx{\Phi}$
+\newcommand{\pdiff}[3][]{\ensuremath{\frac{\partial^{#1}#2}{\partial#3^{#1}}}} % wie gesprochen, eine partielle Ableitung: \del
+\newcommand{\aeqiv}{\ensuremath{\qquad \Longleftrightarrow \qquad}} % Eine Aequivalenz
+\newcommand{\folgt}{\ensuremath{\qquad \Longrightarrow \qquad}} % Ein Folgepfeil mit Abstaenden
+\newcommand{\corresponds}{\ensuremath{\mathrel{\widehat{=}}}} % Befehl für "Entspricht"-Zeichen
 
 %keine Einrückung nach leerzeile
 \parindent0pt
 
-%Literaturverzeichnis
-\usepackage{babelbib}
-\selectbiblanguage{ngerman}
+%Um nicht so viel schreiben zu müssen...
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\wtilde}[1]{\widetilde{#1}}
+\newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\mfrak}[1]{\mathfrak{#1}}
 
 %SI-Einheiten
 \usepackage{siunitx}
 
+%Abkürzungen
+\newcommand{\zB}{z.\,B.\ }
+\newcommand{\bzw}{b.\,z.\, w.\ }
+\newcommand{\Dh}{d.\,h.\ }
+\newcommand{\Gl}{Gl.\ }
+\newcommand{\Abb}{Abb.\ }
+\newcommand{\Tab}{Tab.\ }
+
+%Farbige Box um eine Formel
+%Anwendung:
+%\eqbox{
+%  \begin{equation}
+%    ...
+%  \end{equation}
+%}
+\newcommand{\eqbox}[1]{
+  \colorbox{gray!30}{\parbox{\linewidth}{#1}} 
+}
+
+%Im Text
+\newcommand{\engl}[1]{engl. \textit{#1}}
+\newcommand{\zitat}[1]{\footnote{#1}}
+\newcommand{\person}[1]{\textsc{#1}}
+
+
+%Matheoperatoren
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\divz}{div}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Quellcode - Formatierung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Um auch Umlaute in den Kommentaren auswerten zu können
+\lstset{
+literate = {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}2 {ü}{{\"u}}1
+           {ä}{{\"a}}1 {ö}{{\"o}}1
+}
+
+%Formatierung des Quellcode
+\lstset{
+language=C++,
+basicstyle=\footnotesize\ttfamily,
+keywordstyle=\bfseries\color{blue},
+stringstyle=\color{red},
+commentstyle=\itshape\color{green!60!black},
+emphstyle = \bfseries\color{red!80!green!60!blue}
+%identifierstyle=,
+}
+
+%Zum Hervorheben bestimmter Begriffe (z.B. eigene Klassen, etc.)
+%\lstset{
+%emph = {vector, iterator, std, ostream, istream , ofstream, ifstream, fstream, cmath}
+%}
+
+%Nummerirung
+\lstset{
+numbers=left,
+numberstyle=\tiny,
+stepnumber=2,
+numbersep=5pt,
+frame=single,
+breaklines=true
+framesep=5pt,
+numbersep=8pt,
+breakindent=3ex
+}
+
+%Einbunden über
+%\lstinputlisting[caption={blablabla}, language=C++]{name.cpp}
+
 \begin{document}
+%Autor, etc.
+\newcommand{\versuch}{Versuch 11}
+\newcommand{\titel}{Messung großer Widerstände}
+\newcommand{\praktikantA}{Eric Bertok}
+\newcommand{\praktikantB}{Kevin Lüdemann}
+\newcommand{\emailA}{
+      \href{mailto:eric.bertok@stud.uni-goettingen.de }
+           {eric.bertok@stud.uni-goettingen.de} }
+\newcommand{\emailB}{
+      \href{kevin.luedemann@stud.uni-goettingen.de}
+           {kevin.luedemann@stud.uni-goettingen.de} }
+\newcommand{\gruppe}{B002}
+\newcommand{\durchfuehrungsdatum}{xx.xx.2014}
+\newcommand{\abgabedatum}{xx.xx.2014}
+
+%Metainformationen
+\hypersetup{
+      pdfauthor = {\praktikantA~ },
+      pdftitle  = {\versuch: \titel},
+      pdfsubject = {\titel}
+}
 
 \begin{titlepage}
 \centering
 \textsc{\Large Anfängerpraktikum der Fakultät für
   Physik,\\[1.5ex] Universität Göttingen}
 
-\vspace*{4.2cm}
+\vspace*{3cm}
 
 \rule{\textwidth}{1pt}\\[0.5cm]
 {\huge \bfseries
@@ -142,21 +324,15 @@
 
 \begin{Large}
 \begin{tabular}{ll}
-Praktikant: & Kevin Lüdemann  \\
-%	& Skrollan Detzler\\
-%	& Felix Kurtz\\
-%	& Eric Bertok\\
-	& Michalel Lohmann\\
-E-Mail: & kevin.luedemann@stud.uni-goettingen.de, \\
-%       & skrollan.detzler@stud.uni-goettingen.de\\
-	& m.lohmann@stud.uni-goettingen.de\\
-%	& felix.kurtz@stud.uni-goettingen.de\\
-%	& eric.bertok@stud.uni-goettingen.de\\
-Betreuer: & Martin Ochmann\\
-Versuchsdatum: & 2.6.2014\\
+Praktikanten: &  \praktikantA\footnotemark,\\
+	      &  \praktikantB\footnotemark \\
+             [0.3cm]
+Gruppe: & \gruppe\\
+	     [0.3cm]
+Durchgeführt am: & \durchfuehrungsdatum\\
+Abgegeben am: & \abgabedatum\\
 \end{tabular}
 \end{Large}
-
 \vspace*{0.8cm}
 
 \begin{Large}
@@ -166,10 +342,22 @@ Versuchsdatum: & 2.6.2014\\
   \end{minipage}
 }
 \end{Large}
+\addtocounter{footnote}{-1}
+\footnotetext{\normalsize\emailA}
+\addtocounter{footnote}{1}
+\footnotetext{\normalsize\emailB}
 
 \end{titlepage}
 
+\cleardoublepage
 \tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+
+\setcounter{footnote}{0}
+\setcounter{page}{1}
+
+\pagenumbering{arabic}
 
 \newpage
 
@@ -188,6 +376,7 @@ Versuchsdatum: & 2.6.2014\\
 \section{Diskussion}
 \label{sec:diskussion}
 
-\bibliography{literatur}
-\bibliographystyle{babalpha}
+\newpage
+\nocite{*}
+\printbibliography[heading=bibintoc]
 \end{document}
