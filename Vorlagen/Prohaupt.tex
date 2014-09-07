@@ -3,23 +3,18 @@
 % Näheres zu "scrartcl" bzw. "scrreprt" und "scrbook" siehe KOMA-Skript Doku
 \documentclass[12pt,a4paper,titlepage,headinclude]{scrartcl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Formatierung %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%keine Einrückung nach leerzeile
+\parindent0pt
+
 % Für Kopf und Fußzeilen, siehe auch KOMA-Skript Doku
 \usepackage[komastyle]{scrpage2}
 \pagestyle{scrheadings}
 \setheadsepline{0.5pt}[\color{black}]
 \automark[section]{chapter}
 
-
-%Einstellungen für Figuren- und Tabellenbeschriftungen
-\setkomafont{captionlabel}{\sffamily\bfseries}
-\setcapindent{0em}
-
-%Header Datei
-\usepackage{cellspace} %mehr Platz in Tabellen
-\addtolength\cellspacetoplimit{3pt}
-\newcommand\myhline[1][2pt]{\\[#1]\hline}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Formatierung %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%Zitate und Literaturverzeichnis
 \usepackage[backend=bibtex,natbib=true,sorting=nyt,style=numeric-comp]{biblatex}
 \usepackage[babel,german=quotes]{csquotes}
 \bibliography{literatur}
@@ -81,6 +76,8 @@
 \usepackage{icomma} %
 \usepackage{nicefrac}%
 
+%SI-Einheiten
+\usepackage{siunitx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Grafiken & Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Text umfließt Graphiken und Tabellen
@@ -112,6 +109,15 @@
 %   \caption{Beschreibung}
 %   \label{fig:}
 % \end{SCfigure}
+
+%Einstellungen für Figuren- und Tabellenbeschriftungen
+\setkomafont{captionlabel}{\sffamily\bfseries}
+\setcapindent{0em}
+
+%Fuer mehr Platz in den Tabellen
+\usepackage{cellspace} %mehr Platz in Tabellen
+\addtolength\cellspacetoplimit{3pt}
+\newcommand\myhline[1][2pt]{\\[#1]\hline}
 
 %Zum Einbinden von GRafiken
 \usepackage{graphicx}% [pdflatex]
@@ -193,9 +199,6 @@
 \newcommand{\folgt}{\ensuremath{\qquad \Longrightarrow \qquad}} % Ein Folgepfeil mit Abstaenden
 \newcommand{\corresponds}{\ensuremath{\mathrel{\widehat{=}}}} % Befehl für "Entspricht"-Zeichen
 
-%keine Einrückung nach leerzeile
-\parindent0pt
-
 %Um nicht so viel schreiben zu müssen...
 \newcommand{\bs}[1]{\boldsymbol{#1}}
 \newcommand{\ol}[1]{\overline{#1}}
@@ -205,9 +208,6 @@
 \newcommand{\mbb}[1]{\mathbb{#1}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mfrak}[1]{\mathfrak{#1}}
-
-%SI-Einheiten
-\usepackage{siunitx}
 
 %Abkürzungen
 \newcommand{\zB}{z.\,B.\ }
