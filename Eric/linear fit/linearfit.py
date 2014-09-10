@@ -17,7 +17,7 @@ fig, ax = plt.subplots(figsize=(12,6))
 ax.ticklabel_format(style='sci', axis='both', scilimits=(-3,3))
 colors=['b','g','r','c','m','y','k']
 fitcolors=['g','b','g','r','c','m','y','k']
-datensaetze = np.genfromtxt('linearindex.txt',dtype='str')
+datensaetze = np.genfromtxt('linearindex.txt',dtype='str', delimiter="\t")
 print datensaetze
 ax.set_xlabel(datensaetze[0,0],fontsize=16)
 ax.set_ylabel(datensaetze[0,1],fontsize=16)
