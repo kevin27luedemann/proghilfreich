@@ -103,6 +103,28 @@
 %   \caption{Beschriftung allgemein}
 %   \label{fig:label-gesamt}
 % \end{figure}
+
+%Subfigure nur mit PDF statt Bildern einfügen:
+\usepackage{adjustbox}
+%\begin{figure}[h]
+%  \centering
+%  \subfigure[Caption1\label{fig:bild1}]
+%  {\begin{adjustbox}{width=0.44\linewidth}\input{bild1}\end{adjustbox}}
+%  \hfill
+%  \subfigure[Caption2\label{bild2}]
+%  {\begin{adjustbox}{width=0.44\linewidth}\input{bild2}\end{adjustbox}}
+%  \hfill
+%  \subfigure[Caption3\label{bild3}]
+%  {\begin{adjustbox}{width=0.44\linewidth}\input{bild3}\end{adjustbox}}
+%  \caption{Gesamtcaption}
+%  \label{fig:gesamtlabel}
+%\end{figure}
+
+\usepackage{subfigure}
+
+
+
+
 % Caption neben Abbildung
 % Beispiel:
 % \sidecaptionvpos{figure}{"c" oder "t" oder "b"}
