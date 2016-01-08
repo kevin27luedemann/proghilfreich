@@ -5,7 +5,6 @@ SRCS=main.cpp
 CC=g++
 
 all: $(NAME)
-
   
 main: $(SRCS)
 	$(CC) $(CFLAGS) $(SRCS) $(GTKFLAGS)
