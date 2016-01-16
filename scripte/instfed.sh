@@ -1,7 +1,13 @@
+#zuerst updates installieren
 dnf update
-dnf install okular vim filezilla  
+#erste handvoll wichtige programme
+dnf install -y okular vim filezilla git ncdu cowsay fortune-firefly 
+#vlc mediaplayer installieren
 ./getnonfreerepo.sh
-dnf install vlc
+dnf install -y vlc
+#google chrome installieren
 ./installgooglechrome.sh
-dnf install ncdu cowsay fortune-firefly
-
+#install python
+./instpython.sh
+#install texlive optional
+#dnf install texlive-scheme-full
