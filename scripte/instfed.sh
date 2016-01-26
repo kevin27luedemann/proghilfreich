@@ -1,7 +1,7 @@
 #zuerst updates installieren
 dnf update
 #erste handvoll wichtige programme
-dnf install -y okular vim filezilla git ncdu cowsay fortune-firefly mc feh ImageMagick arandr gcc gcc-c++
+dnf install -y okular vim filezilla git ncdu cowsay fortune-firefly mc feh ImageMagick arandr gcc gcc-c++ xterm
 #vlc mediaplayer installieren
 ./getnonfreerepo.sh
 dnf install -y vlc
