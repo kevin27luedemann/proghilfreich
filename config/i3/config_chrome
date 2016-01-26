@@ -93,7 +93,7 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $WORK1 "1: Firefox"
+set $WORK1 "1: Chrome"
 set $WORK2 "2: Terminal"
 set $WORK4 "4: File"
 
@@ -121,7 +121,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-assign [class="Firefox"] $WORK1
+assign [class="google-chrome"] $WORK1
 
 #color of windows
 
@@ -167,4 +167,4 @@ bar {
         status_command i3status
 }
 
-exec firefox
+exec google-chrome

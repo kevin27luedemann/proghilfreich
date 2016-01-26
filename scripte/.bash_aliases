@@ -8,6 +8,7 @@ alias ös='~/.falsch.sh ös'
 alias lös='~/.falsch.sh lös'
 alias lks='~/.falsch.sh lks'
 alias ks='~/.falsch.sh ks'
+alias kd='~/.falsch.sh kd'
 alias kls='~/.falsch.sh kls'
 alias lkd='~/.falsch.sh lkd'
 alias löa='~/.falsch.sh löa'
@@ -28,8 +29,8 @@ alias lock='xscreensaver-command -lock'
 alias weg='gnome-session-quit'
 
 #ssh Befehle
-alias sshcip='ssh c082'
-alias sshcipx='ssh -X c082'
+alias sshcip='ssh kevin.luedemann@login.cip.physik.uni-goettingen.de'
+alias sshcipx='ssh -X kevin.luedemann@login.cip.physik.uni-goettingen.de'
 
 #Script Befehle
 #watch SGE fuer meinen Account
@@ -44,5 +45,11 @@ alias lpqw='watch lpq'
 bind -r '\C-s'
 stty -ixon
 
+#spassiege scripte
+alias cowsay='/home/kevin.luedemann/Spiele/cow/bin/cowsay'
+alias uhr='date | /home/kevin.luedemann/Spiele/cow/bin/cowsay -f dragon'
+alias uhrw='watch "date | /home/kevin.luedemann/Spiele/cow/bin/cowsay -f dragon"'
+
 #Variable in der Bash setzen
 EDITOR=vim
+
