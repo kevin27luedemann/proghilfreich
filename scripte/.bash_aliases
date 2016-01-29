@@ -6,6 +6,7 @@ alias la='ls -a'
 alias lsd='~/.falsch.sh lsd'
 alias ös='~/.falsch.sh ös'
 alias lös='~/.falsch.sh lös'
+alias öls='~/.falsch.sh öls'
 alias lks='~/.falsch.sh lks'
 alias ks='~/.falsch.sh ks'
 alias kd='~/.falsch.sh kd'
@@ -49,6 +50,9 @@ stty -ixon
 alias cowsay='/home/kevin.luedemann/Spiele/cow/bin/cowsay'
 alias uhr='date | /home/kevin.luedemann/Spiele/cow/bin/cowsay -f dragon'
 alias uhrw='watch "date | /home/kevin.luedemann/Spiele/cow/bin/cowsay -f dragon"'
+
+#hexeditor in full version
+alias hexedit='hexedit -s -m --color'
 
 #Variable in der Bash setzen
 EDITOR=vim
