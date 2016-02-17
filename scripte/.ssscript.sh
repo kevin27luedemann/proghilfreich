@@ -9,7 +9,7 @@ FRAGE=`xscreensaver-command -time | grep 'screen locked'`
 
 while [ "$FRAGE" != "" ]
 do
-#	sleep 5
+	sleep 1
 	FRAGE=`xscreensaver-command -time | grep "screen locked"`
 done
 
