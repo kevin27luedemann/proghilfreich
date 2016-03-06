@@ -18,26 +18,26 @@ apt-get install python-numpy python-scipy python-matplotlib ipython ipython-note
 #apt-get install texlive-full
 
 #add Resource Datai fuer xterminal
-cp .Xresources ~/
+cp .Xresources /home/$1/
 #i3 einstellen
-cp ../i3/wallpaper.jpg ~/Bilder/
-mkdir ~/.i3/
-cp ../i3/config_deb ~/.i3/config
+cp ../i3/wallpaper.jpg /home/$1/Bilder/
+mkdir -p /home/$1/.i3/
+cp ../i3/config_deb /home/$1/.i3/config
 #bash einstelln
-cp .bashrc ~/
-cp .bash_aliases ~/
-cp .bash_profile ~/
-cp .falsch.sh ~/
-cp .vimrc ~/
-cp .falsch.sh ~/
-cp .vimrc ~/
-cp .falsch.sh ~/
-cp .vimrc ~/
-cp .falsch.sh ~/
-cp .vimrc ~/
-cp .falsch.sh ~/
-cp .vimrc ~/
-cp .falsch.sh ~/
-cp .vimrc ~/
-cp .falsch.sh ~/
-cp .vimrc ~/
+cp .bashrc /home/$1/
+cp .bash_aliases /home/$1/
+cp .bash_profile /home/$1/
+cp .falsch.sh /home/$1/
+cp .vimrc /home/$1/
+cp .falsch.sh /home/$1/
+cp .vimrc /home/$1/
+cp .falsch.sh /home/$1/
+cp .vimrc /home/$1/
+cp .falsch.sh /home/$1/
+cp .vimrc /home/$1/
+cp .falsch.sh /home/$1/
+cp .vimrc /home/$1/
+cp .falsch.sh /home/$1/
+cp .vimrc /home/$1/
+cp .falsch.sh /home/$1/
+cp .vimrc /home/$1/
