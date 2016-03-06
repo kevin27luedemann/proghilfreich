@@ -1,17 +1,43 @@
 #zuerst updates installieren
+cp ./sources.list /etc/apt/
 apt-get update
+apt-get upgrade -y
 #erste handvoll wichtige programme
-apt-get install -y okular filezilla ncdu cowsay fortune mc feh ImageMagick arandr gcc xterm ranger hexedit
+apt-get install -y okular filezilla ncdu cowsay fortune mc feh ImageMagick arandr gcc xterm ranger hexedit i3 i3blocks
 #vim mit latex installieren
-#dnf install -y vim vim-enhanced vim-latex vim-X11 texlive texlive-bibtex-bin texlive-latex-bin
-#vlc mediaplayer installieren
-#./getnonfreerepo.sh
-#dnf install -y vlc
+apt-get install -y vim-gtk vim-python-jedi vim-addon-manager vim-latexsuite vim-syntax-gtk
 #google chrome installieren
-#./installgooglechrome.sh
+apt-get install -y chromium
+#install nvidia driver und konfigurieren
+apt-get install -y nvidia-driver nvidia-xconfig
+apt-get install -y xorg-server-source
+nvidia-xconfig
 #install python
-#./instpython.sh
-#install i3blocks fuer Statusleiste
-#./insti3blocks.sh
-#install texlive optional
-#dnf install texlive-scheme-full
+apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+#install texlive
+#apt-get install texlive-full
+
+#add Resource Datai fuer xterminal
+cp .Xresources ~/
+#i3 einstellen
+cp ../i3/wallpaper.jpg ~/Bilder/
+mkdir ~/.i3/
+cp ../i3/config_deb ~/.i3/config
+#bash einstelln
+cp .bashrc ~/
+cp .bash_aliases ~/
+cp .bash_profile ~/
+cp .falsch.sh ~/
+cp .vimrc ~/
+cp .falsch.sh ~/
+cp .vimrc ~/
+cp .falsch.sh ~/
+cp .vimrc ~/
+cp .falsch.sh ~/
+cp .vimrc ~/
+cp .falsch.sh ~/
+cp .vimrc ~/
+cp .falsch.sh ~/
+cp .vimrc ~/
+cp .falsch.sh ~/
+cp .vimrc ~/
