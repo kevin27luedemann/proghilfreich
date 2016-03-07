@@ -3,30 +3,30 @@
 if [ "$1" != ""  ]
 then
 #zuerst updates installieren
-cp ./sources.list /etc/apt/ ;
-apt-get update ;
-apt-get upgrade -y ;
+cp ./sources.list /etc/apt/
+apt-get update
+apt-get upgrade -y
 #erste handvoll wichtige programme
-apt-get install -y okular filezilla ncdu cowsay fortune mc feh ImageMagick arandr gcc xterm ranger hexedit i3 i3blocks ;
+apt-get install -y okular filezilla ncdu cowsay fortune mc feh ImageMagick arandr gcc xterm ranger hexedit i3 i3blocks
 #vim mit latex installieren
-apt-get install -y vim-gtk vim-python-jedi vim-addon-manager vim-latexsuite vim-syntax-gtk ;
+apt-get install -y vim-gtk vim-python-jedi vim-addon-manager vim-latexsuite vim-syntax-gtk
 #google chrome installieren
-apt-get install -y chromium ;
+apt-get install -y chromium
 #install nvidia driver und konfigurieren
-apt-get install -y nvidia-driver nvidia-xconfig ;
-apt-get install -y xorg-server-source ;
-nvidia-xconfig ;
+apt-get install -y nvidia-driver nvidia-xconfig
+apt-get install -y xorg-server-source
+nvidia-xconfig
 #install python
-apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose ;
+apt-get install -y python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 #install texlive
 #apt-get install texlive-full
 
 #add Resource Datai fuer xterminal
-cp .Xresources /home/$1/ ;
+cp .Xresources /home/$1/
 #i3 einstellen
-cp ../i3/wallpaper.jpg /home/$1/Bilder/ ;
-mkdir -p /home/$1/.i3/ ;
-cp ../i3/config_deb /home/$1/.i3/config ;
+cp ../i3/wallpaper.jpg /home/$1/Bilder/
+mkdir -p /home/$1/.i3/
+cp ../i3/config_deb /home/$1/.i3/config
 #bash einstelln
 cp .bashrc /home/$1/ ;
 cp .bash_aliases /home/$1/ ;
@@ -57,6 +57,12 @@ cd libdvdcss-1.2.13 ;
 make install ;
 cd ../.. ;
 rm -rf dvd/ ;
+
+if [ "$2" == "real" ]
+then
+apt-get install -y firmware-realtek
+fi
+
 else
 echo "USER ist nicht gesetzt"
 fi
