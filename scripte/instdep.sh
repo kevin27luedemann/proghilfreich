@@ -58,6 +58,9 @@ make install ;
 cd ../.. ;
 rm -rf dvd/ ;
 
+#diable beeping
+rmmod pcspkr
+
 if [ "$2" == "real" ]
 then
 apt-get install -y firmware-realtek
