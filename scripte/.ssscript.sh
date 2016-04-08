@@ -1,3 +1,4 @@
+SECONDS=0
 xscreensaver -d :0 & 
 echo "Prozess gestartet mit ID: $!"
 xscreensaver-command -lock 
@@ -23,3 +24,5 @@ then
 	echo "Prozess konnte nicht beendet werden und existiert noch!!!"
 	echo -e $BEENDET
 fi
+duration=$SECONDS
+echo "Du warst $(($duration /60))m und $(($duration %60))s nicht am arbeiten!" | /home/kevin.luedemann/Spiele/cow/bin/cowsay -f dragon
