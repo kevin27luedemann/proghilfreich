@@ -25,4 +25,4 @@ then
 	echo -e $BEENDET
 fi
 duration=$SECONDS
-echo "Du warst $(($duration /60))m und $(($duration %60))s nicht am arbeiten!" | /home/kevin.luedemann/Spiele/cow/bin/cowsay -f dragon
+echo "Du warst $(($duration /60))m und $(($duration %60))s nicht am arbeiten!" # | /home/kevin.luedemann/Spiele/cow/bin/cowsay -f dragon
