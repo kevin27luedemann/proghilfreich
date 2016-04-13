@@ -94,8 +94,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $WORK1 "1: Firefox"
-set $WORK2 "2: Terminal"
-set $WORK4 "4: File"
+set $WORK2 "2:"
+set $WORK4 "4:"
 
 # switch to workspace
 bindsym $mod+1 workspace $WORK1
