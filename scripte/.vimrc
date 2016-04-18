@@ -59,6 +59,10 @@ if &term=="xterm"
      set t_Sf=[3%dm
 endif
 
+" Set Beeping off
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
@@ -82,4 +86,4 @@ map <F12> :!pdflatex %<CR><CR>
 :imap <c-s> <Esc><c-s>
 :vmap <c-s> <Esc><c-s>
 "F09 als gnuplot plot.gp
-map <F9> :!gnuplot plot.gp<CR>
+map <F9> :!gnuplot %<CR>
