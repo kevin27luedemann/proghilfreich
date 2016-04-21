@@ -87,3 +87,6 @@ map <F12> :!pdflatex %<CR><CR>
 :vmap <c-s> <Esc><c-s>
 "F09 als gnuplot plot.gp
 map <F9> :!gnuplot %<CR>
+"F10 für nohlsearch
+:nmap <F10> :nohlsearch <CR>
+:imap <F10> :nohlsearch <CR>
