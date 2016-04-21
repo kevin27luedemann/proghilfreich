@@ -69,6 +69,8 @@ let &guicursor = &guicursor . ",a:blinkon0"
 "meine neuen Befhele
 nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
 nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
+"7 Zeilen vor Ende scrollen
+set scrolloff=7
 "Zeilen nummerierung
 set number 
 "k auf visual k
@@ -77,10 +79,9 @@ nnoremap k gk
 nnoremap j gj
 "jk auf esc
 inoremap öö <esc>
-"jj auf esc 
-"inoremap jj <esc>
 "F12 als make Prohaupt.pdf
-map <F12> :!pdflatex %<CR><CR>
+map <F12> :!make <CR>
+map <F8> :!pdflatex %<CR>
 "noremap <silent> <C-s> <esc>:w<CR>
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc><c-s>
