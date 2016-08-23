@@ -93,7 +93,7 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $WORK1 "1: Firefox"
+set $WORK1 "1: Browser"
 set $WORK2 "2:"
 set $WORK4 "4:"
 
